@@ -1,0 +1,13 @@
+{
+  "name": "meu-bot-haxball",
+  "version": "1.0.0",
+  "description": "Sala Capitalismo - Haxball",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "haxball.js": "latest"
+  }
+}
+
