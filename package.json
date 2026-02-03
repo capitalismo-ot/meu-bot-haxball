@@ -1,0 +1,12 @@
+{
+  "name": "haxball-24h",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "haxball.js": "latest",
+    "express": "latest"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
