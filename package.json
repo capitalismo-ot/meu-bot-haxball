@@ -1,0 +1,11 @@
+{
+  "name": "bot-haxball-novo",
+  "version": "1.1.0",
+  "main": "index.js",
+  "dependencies": {
+    "haxball-headless-api": "1.2.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
