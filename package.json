@@ -1,0 +1,11 @@
+{
+  "name": "capitalismo-haxball",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "haxball-headless-api": "git+https://github.com/haxball/haxball-headless-api.git"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
