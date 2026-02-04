@@ -1,11 +1,11 @@
 const HaxballJS = require('haxball.js');
 const http = require('http');
 
-// Servidor para o Render não derrubar o bot
+// Servidor obrigatório para o Render
 const port = process.env.PORT || 3000;
 http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Bot Capitalismo Online');
+    res.end('Bot Capitalismo Ativo');
 }).listen(port);
 
 async function startBot() {
@@ -18,20 +18,24 @@ async function startBot() {
             roomName: "Capitalismo",
             maxPlayers: 16,
             public: true,
-            token: process.env.HAXBALL_TOKEN, // Certifique-se que a variável existe no Render!
+            token: process.env.HAXBALL_TOKEN,
             noPlayer: true
         });
 
+        // Evento disparado quando o link é gerado
         room.onRoomLink = (link) => {
             console.log("--------------------------------------");
-            console.log("SALA ONLINE: " + link);
+            console.log("SUCESSO! LINK: " + link);
             console.log("--------------------------------------");
         };
 
-        console.log("Solicitação enviada. Aguardando link...");
+        // Forçar um log se a sala demorar mais de 30 segundos
+        setTimeout(() => {
+            console.log("Verificação: O Haxball ainda não enviou o link. Verifique o TOKEN!");
+        }, 30000);
 
     } catch (error) {
-        console.error("Erro no bot:", error);
+        console.error("Erro no motor:", error);
     }
 }
 
