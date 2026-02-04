@@ -1,7 +1,6 @@
 const HaxballJS = require('haxball.js');
 const http = require('http');
 
-// Servidor obrigatório para o Render
 const port = process.env.PORT || 3000;
 http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -14,6 +13,11 @@ async function startBot() {
         const Haxball = await HaxballJS;
         const HBInit = Haxball.default || Haxball; 
         
+        // Pequeno delay de 3 segundos antes de pedir o link
+        await new Promise(resolve => setTimeout(resolve, 3000));
+
+        console.log("Enviando solicitação ao Haxball...");
+        
         const room = HBInit({
             roomName: "Capitalismo",
             maxPlayers: 16,
@@ -22,20 +26,14 @@ async function startBot() {
             noPlayer: true
         });
 
-        // Evento disparado quando o link é gerado
         room.onRoomLink = (link) => {
             console.log("--------------------------------------");
-            console.log("SUCESSO! LINK: " + link);
+            console.log("LINK DA SALA: " + link);
             console.log("--------------------------------------");
         };
 
-        // Forçar um log se a sala demorar mais de 30 segundos
-        setTimeout(() => {
-            console.log("Verificação: O Haxball ainda não enviou o link. Verifique o TOKEN!");
-        }, 30000);
-
     } catch (error) {
-        console.error("Erro no motor:", error);
+        console.error("Erro fatal:", error);
     }
 }
 
